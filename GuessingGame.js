@@ -1,6 +1,6 @@
 
-let secretNumber = Math.floor(Math.random() * 100) + 1
-//secretNumber = 15
+//let secretNumber = Math.floor(Math.random() * 100) + 1
+secretNumber = 15
 let arrGueses = []
 let attempts = 0
 
@@ -18,25 +18,29 @@ function makeGuess() {
    
     if (userGuess < secretNumber) {
         document.body.style.backgroundColor = "red"
+        arrGueses.push(userGuess)
+        document.getElementById("guessList").textContent = arrGueses
         return alert("Too low!, Try Again")
     } else if (userGuess == secretNumber) {
+        arrGueses.push(userGuess)
+        document.getElementById("guessList").textContent = arrGueses
         document.body.style.backgroundColor = "green"
         document.getElementById("checkGuess").style.visibility = "hidden"
         return alert("Congratulations! You guessed the correct number in: " + attempts + " attempts")
     } else if (userGuess > secretNumber){
+        arrGueses.push(userGuess)
+        document.getElementById("guessList").textContent = arrGueses
         document.body.style.backgroundColor = "red"
         return alert("Too high!, Try Again")
     }
-   arrGueses.push(userGuess)
+  
 
-    const guessPara = document.createElement("p")
-    const guessNode = document.createTextNode(arrGueses)
-    guessPara.appendChild(guessNode)
-
-    const guessListEL = document.getElementById("guessList")
-    guessListEL.appendChild(guessPara)
 }
 
+/**
+ * @returns {number} secretNumber returns a randomly generated number
+ * sets all other vairables to their default values 
+ */
 function resetGame () {
     secretNumber =  Math.floor(Math.random() * 100) + 1
     attempts = 0
@@ -44,4 +48,5 @@ function resetGame () {
     document.querySelector("input").value = ""
     document.body.style.backgroundColor = "white"
     document.getElementById("checkGuess").style.visibility = "visible"
+    document.getElementById("guessList").textContent = ""
 }
