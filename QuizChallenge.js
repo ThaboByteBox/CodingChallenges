@@ -7,6 +7,10 @@ document.getElementById("firstAnswer").style.visibility = "hidden"
 document.getElementById("secondAnswer").style.visibility = "hidden"
 document.getElementById("thirdAnswer").style.visibility = "hidden"
 
+/**
+ * enables the visibilty of the other buttons and hides the Begin game
+ * @returns  Question from the arrQuestionTex array
+ */
 function beginQuiz() {
     
     for (i = 0; i < arrQuestionText.length; i++ ) {
@@ -28,7 +32,9 @@ function beginQuiz() {
 
 
 
-
+/**
+ * Loads the value of the guess and check if the guess is correct 
+ */
 function firstAnswerGuess() {
     let answer = document.getElementById("firstAnswer").innerText
     let guessHealthEl = document.getElementById("questionHealth").textContent
@@ -37,9 +43,12 @@ function firstAnswerGuess() {
     } else {
     guessHealthEl = "Incorrect! The correct Answer is:  " + answer
     }
-    console.log(answer)
+    //console.log(answer)
 }
 
+/**
+ * loads the value of the guess and checks if the guess is correct 
+ */
 function secondAnswerGuess() {
     i = 0
     let answer = document.getElementById("secondAnswer").innerText
@@ -50,7 +59,9 @@ function secondAnswerGuess() {
      guessHealthEl = "Incorrect! The correct Answer is:  " + answer
     }
 }
-
+/**
+ * loads the value of the guess and checks if the guess is correct 
+ */
 function thirdAnswerGuess() {
     let answer = document.getElementById("thirdAnswer").innerText
     console.log(answer)
