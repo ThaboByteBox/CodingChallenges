@@ -15,18 +15,28 @@ function addLineHandler () {
  */
     function generateRandomLine(){
 
+    }
+
 /**
  * @returns randomly generated colour using hex codes
  */
         function generateRandomColour () {
-
+            const colourHexCharacters = [0,1,2,3,4,5,6,7,8,9,"A","B","C","D","E","F"]
+            let colourRep = "#"
+            for (let iColour = 0;iColour < 6;iColour++) {
+                const randomColour = Math.floor(Math.random()* colourHexCharacters.length)
+                colourRep += colourHexCharacters[iColour] + randomColour 
+            }
+            return colourRep
         }
+    }
 /**
  * @returns randomly generated text 
  */
         function generateRandomText () {
-
-        }
+            let randomText = (Math.random()).toString(36).replace(".","")
+            return randomText 
+        
     }
 let textLine = generateRandomLine()
 if (iLineCounter > 9) {
@@ -35,7 +45,7 @@ if (iLineCounter > 9) {
 
 }
 
-} 
+
 
 /**
  *  Removes the lastChild added to the HTML display element
