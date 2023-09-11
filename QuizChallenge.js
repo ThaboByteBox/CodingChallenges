@@ -9,12 +9,12 @@ let qHealthEl = document.getElementById("questionHealth")
 document.getElementById("firstAnswer").style.visibility = "hidden"
 document.getElementById("secondAnswer").style.visibility = "hidden"
 document.getElementById("thirdAnswer").style.visibility = "hidden"
+document.getElementById("playAgain").style.visibility = "hidden"
 let iRandomNumber = 0
 iRandomNumber = Math.floor( Math.random()*2)
 let firtsQuestion = arrQuestionText[iRandomNumber]["question"]
 let correctAnswer = ""
 
-console.log(iRandomNumber)
 
 
 /**
@@ -57,6 +57,10 @@ function firstAnswerGuess() {
    } else {
     qHealthEl.textContent = "Incorrect! The correct answer is: " + correctAnswer
    }
+   document.getElementById("firstAnswer").style.visibility = "hidden"
+   document.getElementById("secondAnswer").style.visibility = "hidden"
+   document.getElementById("thirdAnswer").style.visibility = "hidden"
+   document.getElementById("playAgain").style.visibility = "visible"
 }
 
 function secondAnswerGuess () {     
@@ -65,6 +69,10 @@ function secondAnswerGuess () {
    } else {
     qHealthEl.textContent = "Incorrect! The correct answer is: " + correctAnswer
    }
+   document.getElementById("firstAnswer").style.visibility = "hidden"
+   document.getElementById("secondAnswer").style.visibility = "hidden"
+   document.getElementById("thirdAnswer").style.visibility = "hidden"
+   document.getElementById("playAgain").style.visibility = "visible"
 }
 
 function thirdAnswerGuess () {
@@ -72,5 +80,19 @@ function thirdAnswerGuess () {
         qHealthEl.textContent = "Correct!"
        } else {
         qHealthEl.textContent = "Incorrect! The correct answer is: " + correctAnswer
-       } 
+       }
+    document.getElementById("firstAnswer").style.visibility = "hidden"
+    document.getElementById("secondAnswer").style.visibility = "hidden"
+    document.getElementById("thirdAnswer").style.visibility = "hidden" 
+    document.getElementById("playAgain").style.visibility = "visible"
+}
+
+function playAgain() {
+        iRandomNumber = Math.floor( Math.random()*2)
+        firtsQuestion = arrQuestionText[iRandomNumber]["question"] 
+        displayEl.textContent = firtsQuestion + "?" 
+        document.getElementById("firstAnswer").style.visibility = "visible"
+        document.getElementById("secondAnswer").style.visibility = "visible"
+        document.getElementById("thirdAnswer").style.visibility = "visible"
+          
 }
