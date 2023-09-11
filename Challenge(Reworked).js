@@ -1,7 +1,9 @@
 let iLineCounter = 0
-let arrTextLine = []
+const arrLines = [
+    {text: "0osxiag4xkli", colour: "#9C9245", isVisible: true}
+]
 let isValid = true
-
+let displayElement = document.getElementById("display-el")
 /**
  * @returns fully randomised line of text with randomised colour and adds it to the HTML display element and
  * keeps track if the max number of entries have been added, max number being 9, disables the button if max number is
@@ -9,43 +11,45 @@ let isValid = true
  */
 function addLineHandler () {
     iLineCounter ++
-
-/**
- * @returns complete radomised line of text with a radomised colour assinged to it 
- */
-    function generateRandomLine(){
-
-    }
-
-/**
+    let completeLine = ""
+    let completeColour = ""
+ /**
  * @returns randomly generated colour using hex codes
- */
-        function generateRandomColour () {
-            const colourHexCharacters = [0,1,2,3,4,5,6,7,8,9,"A","B","C","D","E","F"]
+ */     if (iLineCounter <= 9) {
+        isValid = true
+        if (isValid = true) {
+            function generateRandomColour (){
+                const colourHexCharacters = [0,1,2,3,4,5,6,7,8,9,"A","B","C","D","E","F"]
+               
+                function getRandomColourCharacter (iColour) {
+                    return colourHexCharacters[iColour]
+                }
             let colourRep = "#"
-            for (let iColour = 0;iColour < 6;iColour++) {
-                const randomColour = Math.floor(Math.random()* colourHexCharacters.length)
-                colourRep += colourHexCharacters[iColour] + randomColour 
+            for (let iColour = 0; iColour < 6; iColour ++) {
+                const randomColour = Math.floor(Math.random() * colourHexCharacters.length)
+                colourRep += getRandomColourCharacter(randomColour)
             }
             return colourRep
+            }
+    /**
+     * @returns randomly generated text 
+     */
+            function generateRandomText () {
+                let randomText = (Math.random()).toString(36).replace(".","")
+                return randomText
+            }
+            completeLine = generateRandomText()
+            completeColour = generateRandomColour()            
         }
+
+ } else if (iLineCounter > 9) {
+        isValid = false
+        if (isValid = false) {
+            alert("Max Number of Lines Reached")
+        }
+ }
+ console.log(iLineCounter)
     }
-/**
- * @returns randomly generated text 
- */
-        function generateRandomText () {
-            let randomText = (Math.random()).toString(36).replace(".","")
-            return randomText 
-        
-    }
-let textLine = generateRandomLine()
-if (iLineCounter > 9) {
- 
-} else if (iLineCounter < 9) {
-
-}
-
-
 
 /**
  *  Removes the lastChild added to the HTML display element
